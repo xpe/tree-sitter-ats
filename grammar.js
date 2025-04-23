@@ -8,13 +8,6 @@ module.exports = grammar({
     entry_id: ($) => /[^»]+/,
     entry_content: ($) => $._inner,
     _inner: ($) => repeat1(/([^-«]|-[^-]|--[^-])/),
-    // _inner: ($) => repeat1(
-    //   choice(
-    //     /--[^-]/,
-    //     /-[^-]/,
-    //     /[^-«]/,
-    //   )
-    // ),
     note: ($) => seq($.note_prefix, optional($.note_content)),
     note_prefix: ($) => "---",
     note_content: ($) => repeat1(/./),
