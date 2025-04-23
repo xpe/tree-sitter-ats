@@ -1,0 +1,13 @@
+=====___
+01a
+=====___
+
+«1001» Hello there.
+
+---___
+
+(source_file
+  (entry
+    (entry_marker
+      (entry_id))
+    (entry_content)))

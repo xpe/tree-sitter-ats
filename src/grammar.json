@@ -1,0 +1,119 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "ats",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "entry"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "note"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "entry_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "entry_content"
+        }
+      ]
+    },
+    "entry_marker": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "«"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "entry_id"
+        },
+        {
+          "type": "STRING",
+          "value": "»"
+        }
+      ]
+    },
+    "entry_id": {
+      "type": "PATTERN",
+      "value": "[^»]+"
+    },
+    "entry_content": {
+      "type": "SYMBOL",
+      "name": "_inner"
+    },
+    "_inner": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "PATTERN",
+        "value": "([^-«]|-[^-]|--[^-])"
+      }
+    },
+    "note": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "note_prefix"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "note_content"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "note_prefix": {
+      "type": "STRING",
+      "value": "---"
+    },
+    "note_content": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "PATTERN",
+        "value": "."
+      }
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [],
+  "reserved": {}
+}
