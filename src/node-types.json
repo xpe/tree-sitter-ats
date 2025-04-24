@@ -8,6 +8,10 @@
       "required": true,
       "types": [
         {
+          "type": "entry_comment",
+          "named": true
+        },
+        {
           "type": "entry_content",
           "named": true
         },
@@ -17,6 +21,26 @@
         }
       ]
     }
+  },
+  {
+    "type": "entry_comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "entry_comment_inner",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entry_comment_inner",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "entry_content",
@@ -83,12 +107,20 @@
     }
   },
   {
+    "type": "-}",
+    "named": false
+  },
+  {
     "type": "entry_id",
     "named": true
   },
   {
     "type": "note_prefix",
     "named": true
+  },
+  {
+    "type": "{-",
+    "named": false
   },
   {
     "type": "«",

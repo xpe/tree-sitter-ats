@@ -1,0 +1,24 @@
+=====___
+01c
+=====___
+
+«1001» Hello there.
+
+{- commentary -}
+
+---
+
+Note.
+
+---___
+
+(source_file
+  (entry
+    (entry_marker
+      (entry_id))
+    (entry_content)
+    (entry_comment
+      (entry_comment_inner)))
+  (note
+    (note_prefix)
+    (note_content)))

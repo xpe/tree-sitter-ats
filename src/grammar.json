@@ -36,6 +36,18 @@
         {
           "type": "SYMBOL",
           "name": "entry_content"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "entry_comment"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -61,14 +73,34 @@
       "value": "[^»]+"
     },
     "entry_content": {
-      "type": "SYMBOL",
-      "name": "_inner"
-    },
-    "_inner": {
       "type": "REPEAT1",
       "content": {
         "type": "PATTERN",
         "value": "([^-«]|-[^-]|--[^-])"
+      }
+    },
+    "entry_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{-"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "entry_comment_inner"
+        },
+        {
+          "type": "STRING",
+          "value": "-}"
+        }
+      ]
+    },
+    "entry_comment_inner": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "PATTERN",
+        "value": "([^-]|-[^}])"
       }
     },
     "note": {
