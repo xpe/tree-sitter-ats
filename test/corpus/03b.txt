@@ -10,23 +10,23 @@
 
 ---
 
-Note.
+This is the footer.
 
 ---___
 
 (source_file
-  (entry
-    (entry_marker
-      (entry_id))
-    (entry_content))
-  (entry
-    (entry_marker
-      (entry_id))
-    (entry_content))
-  (entry
-    (entry_marker
-      (entry_id))
-    (entry_content))
-  (note
-    (note_prefix)
-    (note_content)))
+  (item
+    (item_marker
+      (item_id))
+    (item_content))
+  (item
+    (item_marker
+      (item_id))
+    (item_content))
+  (item
+    (item_marker
+      (item_id))
+    (item_content))
+  (footer
+    (footer_prefix)
+    (footer_content)))

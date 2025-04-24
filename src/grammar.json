@@ -9,7 +9,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "entry"
+            "name": "item"
           }
         },
         {
@@ -17,7 +17,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "note"
+              "name": "footer"
             },
             {
               "type": "BLANK"
@@ -26,23 +26,23 @@
         }
       ]
     },
-    "entry": {
+    "item": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "entry_marker"
+          "name": "item_marker"
         },
         {
           "type": "SYMBOL",
-          "name": "entry_content"
+          "name": "item_content"
         },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "entry_comment"
+              "name": "item_note"
             },
             {
               "type": "BLANK"
@@ -51,7 +51,7 @@
         }
       ]
     },
-    "entry_marker": {
+    "item_marker": {
       "type": "SEQ",
       "members": [
         {
@@ -60,7 +60,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "entry_id"
+          "name": "item_id"
         },
         {
           "type": "STRING",
@@ -68,18 +68,18 @@
         }
       ]
     },
-    "entry_id": {
+    "item_id": {
       "type": "PATTERN",
       "value": "[^»]+"
     },
-    "entry_content": {
+    "item_content": {
       "type": "REPEAT1",
       "content": {
         "type": "PATTERN",
         "value": "([^-«]|-[^-]|--[^-])"
       }
     },
-    "entry_comment": {
+    "item_note": {
       "type": "SEQ",
       "members": [
         {
@@ -88,7 +88,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "entry_comment_inner"
+          "name": "item_note_inner"
         },
         {
           "type": "STRING",
@@ -96,26 +96,26 @@
         }
       ]
     },
-    "entry_comment_inner": {
+    "item_note_inner": {
       "type": "REPEAT1",
       "content": {
         "type": "PATTERN",
         "value": "([^-]|-[^}])"
       }
     },
-    "note": {
+    "footer": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "note_prefix"
+          "name": "footer_prefix"
         },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "note_content"
+              "name": "footer_content"
             },
             {
               "type": "BLANK"
@@ -124,11 +124,11 @@
         }
       ]
     },
-    "note_prefix": {
+    "footer_prefix": {
       "type": "STRING",
       "value": "---"
     },
-    "note_content": {
+    "footer_content": {
       "type": "REPEAT1",
       "content": {
         "type": "PATTERN",
